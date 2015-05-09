@@ -1,0 +1,6 @@
+*.aux
+*.out
+*.lol
+*.lof
+
+*.backup
