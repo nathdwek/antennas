@@ -11,7 +11,7 @@ Pour commencer, nous avons simplement simulé un patch rectangulaire posé sur u
   \includegraphics[width=0.7\textwidth]{rayonnement11_annotation.pdf}
   \caption{Diagramme de rayonnement du gain [généré avec PostFeko]\label{fig:rayonnement_11}}
 \end{figure}
-Pour les deux valeurs de $\phi$, la directivité maximale est de \SI{0}{degree}.
+Pour les deux valeurs de $\phi$, la directivité maximale est de \SI{0}{\degree}.
 
 Nous nous sommes aussi intéressés au coefficient de réflexion de l'antenne ainsi qu'à sa fréquence de résonance.
 \begin{figure}[htbp]
@@ -21,6 +21,9 @@ Nous nous sommes aussi intéressés au coefficient de réflexion de l'antenne ai
 \end{figure}
 La figure \ref{fig:reflection11_} nous montre que la résonance de l'antenne se situe à \SI{2.37941}{\giga\hertz} qu'à cette fréquence le coefficient de réflexion vaut \SI{-21.8}{\deci\bel}. A \SI{2.4}{\giga\hertz} ce coefficient vaut \SI{-6}{\deci\bel}, il est intéressant de noter la valeur de la bande passante définie à \SI{-6}{\deci\bel} qui vaut ici pas loin de \SI{0.04}{\giga\hertz}. Un dernier aspect important pour ce point est le pourcentage de puissance délivrée à l'antenne à la fois à la fréquence de résonance et à \SI{2.4}{\giga\hertz}. Ce pourcentage nous est donné par la formule \ref{eqn:puissance délivrée}, ce qui nous donne une valeur de \SI{84}{\percent} à la fréquence de résonance et \SI{25}{\percent} à \SI{2.4}{\giga\hertz}.
 \begin{equation}
-P = {(1-\gamma)^2}*100
+P = {(1-\Gamma_L)^2}*100
 \label{eqn:puissance délivrée}
 \end{equation}
+
+%Note pour jojol: coeff de réflection c'est gamma majuscule, aka \Gamma_L (L pour load).
+%Merci d'utiliser \SI! c'est vachement cool!
