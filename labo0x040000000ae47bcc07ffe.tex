@@ -73,13 +73,11 @@ On constate en effet que la largeur de bande passe de \SI{225}{\mega\hertz} (fig
 
 
 
-\subsection{Le réseau de dipôles}
+\subsection{Réseau de dipôles}
 Nous étudions ici la mise en série de 4 dipôles demi-onde dont la longueur est telle que $\Im(Z_L)=0$ (voir section \ref{subsec:demionde}). Pour avoir une direction maximale de rayonnement en $\theta=\frac{2\pi}{3}$, on peut évaluer le déphasage nécessaire entre chaque source par la relation \ref{eqn:dephasage}
-
-\begin{align*}
-\delta = \beta d \cos(\theta)\numberthis\label{eqn:dephasage}
-\end{align*}
-
+\begin{equation}\label{eqn:dephasage}
+\delta = \beta d \cos(\theta)
+\end{equation}
 Où $\beta = \frac{2\pi f}{c} = $ est le nombre d'onde et $d$, la distance entre deux sources.
 
 Suite à cela, nous avons simulé le système : on peut constater sur la figure \ref{fig:rayonnement4} que le gain maximum est de $\num{4.24} = \SI{6.27}{\deci\bel}$.
@@ -107,5 +105,7 @@ Nous pouvons comparer les trois configurations étudiées du dipôle demi-onde :
   $\SI{1.79}{\deci\bel}$ & $\SI{6.27}{\deci\bel}$ & $\SI{11.46}{\deci\bel}$ \\
   \hline
 \end{tabular}
+
+%Coucou jason! Attention qu'une ligne vide = 1 nouveau paragraphe=> une idée séparée. Si tu veux absolument mettre des lignes vides autour de figures dans le code, mets les en commentaire.
 
 
