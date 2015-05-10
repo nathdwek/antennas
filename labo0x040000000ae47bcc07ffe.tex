@@ -70,8 +70,35 @@ Jusqu'à présent, nous avons travaillé avec un diamètre de fil = $0.00001 \la
 On constate en effet que la largeur de bande passe de \SI{225}{\mega\hertz} (figure \ref{fig:gamma22}) à \SI{487}{\mega\hertz} (figure \ref{fig:gamma5022}). Ceci s'explique par le fait qu'augmenter le diamètre du fil réduit la pente de $\Im(Z_L)$ en fonction de la fréquence.
 
 \subsection{Le dipôle replié}
+Le coefficient de réflexion du dipôle demi-onde replié est représenté en fonction de la fréquence à la figure \ref{fig:Z231}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width = \textwidth]{Z231.pdf}
+  \caption{$\Im(Z_L)$ du dipôle demi-onde replié en fonction de la fréquence.\label{fig:Z231}}
+\end{figure}
+On constate que $\Im(Z_L)$ s'annule maintenant à $f = \SI{1.67}{\giga\hertz}$. Puisque $\Im(Z_L)$ évolue linéairement avec la fréquence, il suffit de remplacer le paramètre $\lambda$ dans le dimensionnement de l'antenne par $\frac{1.67}{1.8}\lambda$ pour construire un dipôle replié qui résonne effectivement autour de \SI{1.8}{\giga\hertz}. Ceci est fait à la figure \ref{fig:Z232}, qui représente la partie imaginaire de l'impédance du dipôle replié de longueur $l = 0.464 \lambda$ en fonction de la fréquence.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width = \textwidth]{Z232.pdf}
+  \caption{$\Im(Z_L)$ en fonction du dipôle replié adapté pour \SI{1.8}{\giga\hertz}.\label{fig:Z232}}
+\end{figure}
+Sur la figure \ref{fig:Z232}, on constate aussi que la partie réelle de l'impédance du dipôle replié est près de 4 fois supérieure à la partie réelle de l'impédance du dipôle demi-onde.
 
+Le coefficient de réflexion de ce dipôle replié est représenté en fonction de la fréquence à la figure \ref{fig:gamma23},
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width = \textwidth]{gamma23.pdf}
+  \caption{$\Gamma_L$ du dipôle replié en fonction de la fréquence}
+\end{figure}
+pour une source d'impédance \SI{300}{\ohm}. Sur cette figure, on lit $\Gamma_L \simeq \SI{-30}{\deci\bel}$ à \SI{1.8}{\giga\hertz} et une largeur de bande de \SI{379}{\mega\hertz}. La largeur de bande à donc augmenté de plus de \SI{50}{\percent} par rapport à celle du dipôle demi-onde de même diamètre ($0.00001\lambda$).
 
+Le gain est représenté dans un diagramme polaire à la figure \ref{fig:gain234}.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width = \textwidth]{gain234.pdf}
+  \caption{Diagramme polaire du gain du dipôle replié dans le plan E.\label{fig:gain234}}
+\end{figure}
+Le gain maximal est toujours bien évidemment dans le plan $\theta = 0$ et vaut \num{1.56}, ce qui est légèrement inférieur au gain maximal du dipôle demi-onde.
 
 \subsection{Réseau de dipôles}
 Nous étudions ici la mise en série de 4 dipôles demi-onde dont la longueur est telle que $\Im(Z_L)=0$ (voir section \ref{subsec:demionde}). Pour avoir une direction maximale de rayonnement en $\theta=\frac{2\pi}{3}$, on peut évaluer le déphasage nécessaire entre chaque source par la relation \ref{eqn:dephasage}
