@@ -25,6 +25,7 @@ A partir de cette valeur, on obtient la fraction de puissance consommée par l'a
 L'adaptation d'impédance est donc très mauvaise. Ceci peut-être résolu en utilisant un dipôle demi-onde, comme nous le verrons dans la prochaine section.
 
 \subsection{Le dipôle demi-onde: $l = \frac{\lambda}{2}$}
+\label{subsec:demionde}
 Le gain dans le plan E est représenté dans un diagramme polaire à la figure \ref{fig:gain22}.
 \begin{figure}[htbp]
   \centering
@@ -72,5 +73,39 @@ On constate en effet que la largeur de bande passe de \SI{225}{\mega\hertz} (fig
 
 
 
+\subsection{Le réseau de dipôles}
+Nous étudions ici la mise en série de 4 dipôles demi-onde dont la longueur est telle que $\Im(Z_L)=0$ (voir section \ref{subsec:demionde}). Pour avoir une direction maximale de rayonnement en $\theta=\frac{2\pi}{3}$, on peut évaluer le déphasage nécessaire entre chaque source par la relation \ref{eqn:dephasage}
+
+\begin{align*}
+\delta = \beta d \cos(\theta)\numberthis\label{eqn:dephasage}
+\end{align*}
+
+Où $\beta = \frac{2\pi f}{c} = $ est le nombre d'onde et $d$, la distance entre deux sources.
+
+Suite à cela, nous avons simulé le système : on peut constater sur la figure \ref{fig:rayonnement4} que le gain maximum est de $\num{4.24} = \SI{6.27}{\deci\bel}$.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width = \textwidth]{rayonnement24.pdf}
+  \caption{Diagramme de rayonnement du réseau de dipôles demi-onde dans le plan E\label{fig:rayonnement4}}
+\end{figure}
+
+Nous avons ensuite rajouté au système un plan conducteur parfait de dimension $3\lambda \times \lambda$ parallèle à l'axe des dipôles et à une distance $\frac{\lambda}{4}$ de ceux-ci. Après une seconde simulation, on peut constater un gain de $\num{14} = \SI{11.46}{\deci\bel}$ sur la figure \ref{fig:rayonnement4reflecteur}, ce qui est nettement mieux que sans le plan réflecteur. Ceci s'explique par le fait que le réseau ne rayonne plus en direction du plan et, par conséquent, rayonne plus fortement dans les autres directions.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width = \textwidth]{rayonnement24b.pdf}
+  \caption{Diagramme de rayonnement du réseau de dipôles demi-onde avec un plan réflecteur dans le plan E\label{fig:rayonnement4reflecteur}}
+\end{figure}
+
+Nous pouvons comparer les trois configurations étudiées du dipôle demi-onde : le dipôle seul,le réseau sans réflecteur et avec réflecteur :
+
+\begin{tabular}{|l|c|r|}
+  \hline
+       dipôle demi-onde & Réseau sans réflecteur & réseau avec réflecteur \\
+  \hline
+  $\SI{1.79}{\deci\bel}$ & $\SI{6.27}{\deci\bel}$ & $\SI{11.46}{\deci\bel}$ \\
+  \hline
+\end{tabular}
 
 

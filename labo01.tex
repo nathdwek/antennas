@@ -34,8 +34,53 @@ La figure \ref{fig:reflection11_} nous montre que la résonance de l'antenne se 
 \subsection{Antenne sur un diélectrique fini}
 L'étape suivante consiste simplement à remplacer le substrat infini par un carré de coté \SI{50}{\milli\meter}, c'est-à-dire la dimension du PCB de notre antenne. Ci-dessous, nous détaillons les changements que cette modification apporte aux différents paramètres déjà étudiés plus haut.
 
-Premièrement, comme nous pouvons le voir sur la figure \ref{fig:reflection12_annotation
-}
+Premièrement, comme nous pouvons le voir sur la figure \ref{fig:reflection12_annotation}, la fréquence de résonance est passée à \SI{2.27}{\giga\hertz} où son coefficient de réflexion ne vaut plus que \SI{-8.47}{\deci\bel}. La bande de fréquences où le coefficient de réflexion vaut moins de \SI{6}{\deci\bel} vaut quand à elle \SI{0.033}{\giga\hertz}.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{reflection12_annotation.pdf}
+\caption{Coefficient de réflexion en fonction de la fréquence\label{fig:reflection12_annotation}}
+\end{figure}
+A nouveau, il est intéressant d'étudier le diagramme de rayonnement du gain de l'antenne, donné à la figure \ref{fig:rayonnement12_annotation}, où l'on remarque que la directivité maximale est à  \SI{0}{\degree} et le gain maximal à \SI{3.64} que ce soit pour $\phi = \SI{0}{\degree} ou  \SI{90}{\degree}$.
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{rayonnement12_annotation}
+\caption{Diagramme de rayonnement de l'antenne sur diélectrique fini}
+\label{fig:rayonnement12_annotation}
+\end{figure}
+Pour terminer, nous avons modifié le déphasage de sorte que $\tan{\delta} = 0.01$. Le gain diminue alors à \SI{2.64} et le coefficient de réflexion vaut \SI{-6}{\deci\bel} à la résonance, qui reste inchangée. (\ref{fig:reflection122_annotation}).
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{reflection122_annotation.pdf}
+\caption{Coefficient de réflexion en fonction de la fréquence, avec déphasage}
+\label{fig:reflection122_annotation}
+\end{figure}
+
+
+\subsection{Antenne avec fente}
+Comme l'indique le titre, l'étape suivant a été de "creuser" une fente dans le carré de notre antenne patch. La seule consigne à suivre était que le coefficient de réflexion à la résonance devait être inférieur à \SI{-10}{\deci\bel}. Comme le montre la figure \ref{fig:reflection13_annotation}, notre choix de \SI{8}{\milli\meter} pour $y_0$ respecte cette consigne.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{reflection13_annotation.pdf}
+\caption{Coefficient de réflexion en fonction de la fréquence, avec fente de \SI{8}{\milli\meter}}
+\label{fig:reflection13_annotation}
+\end{figure}
+
+\subsection{Notre antenne}
+Pour terminer, nous avons ajouté le microstrip dans la fente de notre patch. Mais ni le coefficient de réflexion, ni la fréquence de résonance ne répondaient au cahier des charges, nous avons donc du modifier les paramètres de notre antenne de manière à s'approcher le plus possible du résultat demandé.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{rayonnement_annotationFinal.pdf}
+\caption{Diagramme de rayonnement de notre antenne}
+\label{fig:rayonnement_annotationFinal}
+\end{figure}
+Comme on peut le voir sur la figure \ref{fig:rayonnement_annotationFinal}, notre gain maximum vaut \SI{2.25} pour une directivité de \SI{0}{\degree}. Le coefficient de réflexion est quand à lui donné à la figure \ref{fig:reflection_annotationFinal}.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{reflection_annotationFinal.pdf}
+\caption{Coefficient de réflexion de notre antenne en fonction de la fréquence}
+\label{fig:reflection1_annotationFinal}
+\end{figure}
+
 
 %Bonjour, bien dormi?
 %Aussi étonnant que ça puisse paraître, \includegraphics[width = x \textwidth]{file.pdf} veut dire que tu redimensionne la figure pour qu'elle soit aussi large que x fois la largeur du texte à cet endroit. A toi d'ajuster à ta guise. Mais ne t'en fais pas, je passerai quand même derrière pour râler malgré tout. U b saf mah nig
