@@ -1,11 +1,11 @@
-Durant notre première séance de laboratoire pour le cours de physique des télécommunications, nous avons dimensionné notre antenne patch à l'aide du logiciel FEKO. Pour cela nous avons procédé par étapes, partant d'un design extrêmement simple auquel nous avons petit à petit ajouté ou modifié des éléments pour arriver à la version finale de notre antenne.
-A la fin de la séance, notre antenne avait un coefficient de réflexion minimal de \SI{-27.43}{\deci\bel} à la fréquence de \SI{2.398}{\giga\hertz} là où le cahier des charges nous imposait un coefficient de réflexion de \SI{-6}{\deci\bel} à la fréquence d'utilisation de l'antenne, c'est-à-dire \SI{2.4}{\giga\hertz}.
+Durant notre première séance de laboratoire pour le cours de physique des télécommunications, nous avons dimensionné une antenne patch alimentée par une ligne microstrip à l'aide du logiciel FEKO. Pour cela nous avons procédé par étapes, partant d'un design simple et parfaitement symétrique auquel nous avons petit à petit ajouté ou modifié des éléments pour arriver à la version finale remplissant toutes les spécifications.
 
-Dans ce chapitre, nous allons détailler les différentes étapes qui nous ont amené au dimensionnement final de notre antenne.
+A la fin de la séance, nous avons obtenu une antenne dont les caractéristiques simulés étaient un coefficient de réflexion minimal de \SI{-27.43}{\deci\bel} à la fréquence de \SI{2.398}{\giga\hertz}\footnote{le cahier des charges nous imposait un coefficient de réflexion de \SI{-6}{\deci\bel} à la fréquence d'utilisation de l'antenne, c'est-à-dire \SI{2.4}{\giga\hertz}}, et un gain maximal de \num{2.54}.
 
+Cette antenne sera ensuite testée expérimentalement lors de la troisième séance. Dans ce chapitre, nous allons détailler les différentes étapes qui nous ont amené au dimensionnement final de notre antenne.
 
 \subsection{Antenne sur un diélectrique infini}
-Pour commencer, nous avons simplement simulé un patch rectangulaire posé sur un matériau diélectrique de même permittivité électrique que le PCB utilisé en pratique pour fabriquer notre antenne. Pour ce qui est des dimensions (longueur et largeur) du patch, nous avons utilisé les formules qui nous étaient fournies. La figure \ref{fig:rayonnement_11} nous donne la directivité ainsi que le gain de l'antenne pour des valeurs de $\phi$ de \SI{0}{\degree} et \SI{90}{\degree}.
+Pour commencer, nous avons simplement simulé un patch rectangulaire en matériau conducteur parfait posé sur un matériau diélectrique de même permittivité électrique que le PCB utilisé en pratique pour fabriquer notre antenne, mais considéré dans un premier temps sans pertes. Pour ce qui est des dimensions (longueur et largeur) du patch, nous avons utilisé les formules qui nous étaient fournies. La figure \ref{fig:rayonnement_11} nous donne la directivité ainsi que le gain de l'antenne pour des valeurs de $\phi$ de \SI{0}{\degree} et \SI{90}{\degree}.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{rayonnement11_annotation.pdf}
@@ -19,9 +19,11 @@ Nous nous sommes aussi intéressés au coefficient de réflexion de l'antenne ai
   \includegraphics[width=\textwidth]{reflection11_annotation.pdf}
   \caption{Coefficient de réflexion en fonction de la fréquence [généré avec PostFeko]\label{fig:reflection11_}}
 \end{figure}
-La figure \ref{fig:reflection11_} nous montre que la résonance de l'antenne se situe à \SI{2.37941}{\giga\hertz} qu'à cette fréquence le coefficient de réflexion vaut \SI{-21.8}{\deci\bel}. A \SI{2.4}{\giga\hertz} ce coefficient vaut \SI{-6}{\deci\bel}, il est intéressant de noter la valeur de la bande passante définie à \SI{-6}{\deci\bel} qui vaut ici pas loin de \SI{0.04}{\giga\hertz}. Un dernier aspect important pour ce point est le pourcentage de puissance délivrée à l'antenne à la fois à la fréquence de résonance et à \SI{2.4}{\giga\hertz}. Ce pourcentage nous est donné par la formule \ref{eqn:puissance délivrée}, ce qui nous donne une valeur de \SI{99.3}{\percent} à la fréquence de résonance et \SI{75.2}{\percent} à \SI{2.4}{\giga\hertz}.
+La figure \ref{fig:reflection11_} nous montre que la résonance de l'antenne se situe à \SI{2.38}{\giga\hertz} et qu'à cette fréquence le coefficient de réflexion vaut \SI{-21.8}{\deci\bel}. A la fréquence d'intérêt de \SI{2.4}{\giga\hertz}, ce coefficient vaut \SI{-6}{\deci\bel}. Il est aussi intéressant de noter la largeur de la bande passante\footnote{Définie ici comme l'intervalle de fréquence ou $\Gamma_L < \SI{-6}{\deci\bel}$} qui vaut dans ce cas près de \SI{0.04}{\giga\hertz}.
+
+A partir de ces mesures, nous pouvons calculer le pourcentage de puissance délivrée à l'antenne à la fois à la fréquence de résonance et à \SI{2.4}{\giga\hertz}. Ce pourcentage est obtenu par la relation \ref{eqn:puissance délivrée}, qui nous donne une valeur de \SI{99.3}{\percent} à la fréquence de résonance et \SI{75.2}{\percent} à \SI{2.4}{\giga\hertz}.
 \begin{equation}
-\frac{P_L}{P_{in}} = 1-\Gamma_L^2
+\frac{P_L}{P_{in}} = 1-{\Gamma_L}^2
 \label{eqn:puissance délivrée}
 \end{equation}
 
@@ -32,14 +34,16 @@ La figure \ref{fig:reflection11_} nous montre que la résonance de l'antenne se 
 %NOTE POUR TWERKYTWERK : pour la largeur des figures je me suis 100pourcent inspiré des labos de thermo, je te laisse modifier la mise en forme à ta guise, je touche pas grand chose à ça
 
 \subsection{Antenne sur un diélectrique fini}
-L'étape suivante consiste simplement à remplacer le substrat infini par un carré de coté \SI{50}{\milli\meter}, c'est-à-dire la dimension du PCB de notre antenne. Ci-dessous, nous détaillons les changements que cette modification apporte aux différents paramètres déjà étudiés plus haut.
+Le pas suivante vers une antenne patch réelle consiste à remplacer le substrat infini par un carré de coté \SI{50}{\milli\meter}, c'est-à-dire la dimension du PCB de notre antenne. Ci-dessous, nous détaillons les changements dû à cette modification sur les différents paramètres déjà étudiés plus haut.
 
-Premièrement, comme nous pouvons le voir sur la figure \ref{fig:reflection12_annotation}, la fréquence de résonance est passée à \SI{2.27}{\giga\hertz} où son coefficient de réflexion ne vaut plus que \SI{-8.47}{\deci\bel}. La bande de fréquences où le coefficient de réflexion vaut moins de \SI{6}{\deci\bel} vaut quand à elle \SI{0.033}{\giga\hertz}.
+Premièrement, comme nous pouvons le voir sur la figure \ref{fig:reflection12_annotation},
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{reflection12_annotation.pdf}
 \caption{Coefficient de réflexion en fonction de la fréquence\label{fig:reflection12_annotation}}
 \end{figure}
+la fréquence de résonance s'est déplacée à \SI{2.27}{\giga\hertz} mais le coefficient de réflexion à surtout fortement augmenté pour prendre la valeur de \SI{-8.47}{\deci\bel}. La bande passante s'est elle aussi dégradée et ne vaut plus que \SI{0.033}{\giga\hertz}.
+
 A nouveau, il est intéressant d'étudier le diagramme de rayonnement du gain de l'antenne, donné à la figure \ref{fig:rayonnement12_annotation}, où l'on remarque que la directivité maximale est à  \SI{0}{\degree} et le gain maximal à \SI{3.64} que ce soit pour $\phi = \SI{0}{\degree} ou  \SI{90}{\degree}$.
 \begin{figure}
 \centering
