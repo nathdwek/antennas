@@ -8,7 +8,6 @@
 
 \usepackage{float}
 \usepackage{graphicx}
-\usepackage[hypcap]{caption}
 \usepackage{subcaption}
 \graphicspath{ {pics/} }
 
@@ -16,9 +15,11 @@
 \sisetup{range-phrase=--}
 \sisetup{range-units=single}
 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newcommand*\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
 \usepackage{perpage}
 \MakePerPage{footnote}
 
 \setcounter{tocdepth}{3}
-
-\usepackage[colorlinks=true,linktoc=page,citecolor=blue]{hyperref}
