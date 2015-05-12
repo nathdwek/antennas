@@ -15,7 +15,7 @@ La résistance de rayonnement est représentée en fonction de la fréquence à 
   \includegraphics[width=\textwidth]{Rar21.pdf}
   \caption{Résistance de rayonnement du dipôle court en fonction de la fréquence.\label{fig:Rar21}}
 \end{figure}
-Puisque le fil est modélisé par un conducteur parfait et que les connections ne sont pas prises en compte, la résistance ohmique est considérée comme nulle. Sur la figure \ref{fig:Rar21}, on lit $R_{ar} = \SI{2.44}{\ohm}$ pour $f = \SI{1.8}{\giga\hertz}$, ce qui est très inférieur à la valeur $R_{ar} = 80 \left (\frac{\pi l}{\lambda} \right ) ^2 = \SI{7.90}{\ohm}$ prédite par l'approximation de l'élément de courant.
+Puisque le fil est modélisé par un conducteur parfait et que les connexions ne sont pas prises en compte, la résistance ohmique est considérée comme nulle. Sur la figure \ref{fig:Rar21}, on lit $R_{ar} = \SI{2.44}{\ohm}$ pour $f = \SI{1.8}{\giga\hertz}$, ce qui est très inférieur à la valeur $R_{ar} = 80 \left (\frac{\pi l}{\lambda} \right ) ^2 = \SI{7.90}{\ohm}$ prédite par l'approximation de l'élément de courant.
 
 A partir de cette valeur, on obtient la fraction de puissance consommée par l'antenne en calculant d'abord $\Gamma_L$ puis en utilisant la relation \ref{eqn:puissance délivrée}.
 \begin{align*}
@@ -40,7 +40,7 @@ Sur la figure \ref{fig:Z22},
   \includegraphics[width = \textwidth]{Z22.pdf}
   \caption{Parties réelle et imaginaire et module de l'impédance de l'antenne en fonction de la fréquence.\label{fig:Z22}}
 \end{figure}
-on constate que la partie imaginaire de l'impédance croît linéairement avec la fréquence, et ce beaucoup plus rapidement que la partie réelle qui peut est considérée comme quasi constante. De plus, comme la partie imaginaire évolue d'une valeur négative vers une valeur positive, le module de l'impédance n'est lui pas monotone et présente un minimum qui est approximativement donné par le zéro de la partie imaginaire. Sur la figure \ref{fig:Z22}, ce point se situe à \SI{1.73}{\giga\hertz}. Nous allons maintenant essayer de le déplacer à \SI{1.8}{\giga\hertz} en modifiant la longueur du dipôle.
+on constate que la partie imaginaire de l'impédance croît linéairement avec la fréquence, et ce beaucoup plus rapidement que la partie réelle qui peut être considérée comme quasi constante. De plus, comme la partie imaginaire évolue d'une valeur négative vers une valeur positive, le module de l'impédance n'est lui pas monotone et présente un minimum qui est approximativement donné par le zéro de la partie imaginaire. Sur la figure \ref{fig:Z22}, ce point se situe à \SI{1.73}{\giga\hertz}. Nous allons maintenant essayer de le déplacer à \SI{1.8}{\giga\hertz} en modifiant la longueur du dipôle.
 
 Ceci est fait à la figure \ref{fig:Z022}.
 \begin{figure}[htbp]
@@ -70,7 +70,8 @@ Jusqu'à présent, nous avons travaillé avec un diamètre de fil = $0.00001 \la
 On constate en effet que la largeur de bande passe de \SI{225}{\mega\hertz} (figure \ref{fig:gamma22}) à \SI{487}{\mega\hertz} (figure \ref{fig:gamma5022}). Ceci s'explique par le fait qu'augmenter le diamètre du fil réduit la pente de $\Im(Z_L)$ en fonction de la fréquence.
 
 \subsection{Le dipôle replié}
-Le coefficient de réflexion du dipôle demi-onde replié est représenté en fonction de la fréquence à la figure \ref{fig:Z231}
+Le coefficient de réflexion du dipôle demi-onde replié est représenté en fonction de la fréquence à la figure \ref{fig:Z231}.
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width = \textwidth]{Z231.pdf}
@@ -88,7 +89,7 @@ Le coefficient de réflexion de ce dipôle replié est représenté en fonction 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width = \textwidth]{gamma23.pdf}
-  \caption{$\Gamma_L$ du dipôle replié en fonction de la fréquence}
+  \caption{$\Gamma_L$ du dipôle replié en fonction de la fréquence.\label{fig:gamma23}}
 \end{figure}
 pour une source d'impédance \SI{300}{\ohm}. Sur cette figure, on lit $\Gamma_L \simeq \SI{-30}{\deci\bel}$ à \SI{1.8}{\giga\hertz} et une largeur de bande de \SI{379}{\mega\hertz}. La largeur de bande à donc augmenté de plus de \SI{50}{\percent} par rapport à celle du dipôle demi-onde de même diamètre ($0.00001\lambda$).
 
@@ -101,36 +102,40 @@ Le gain est représenté dans un diagramme polaire à la figure \ref{fig:gain234
 Le gain maximal est toujours bien évidemment dans le plan $\theta = 0$ et vaut \num{1.56}, ce qui est légèrement inférieur au gain maximal du dipôle demi-onde.
 
 \subsection{Réseau de dipôles}
-Nous étudions ici la mise en série de 4 dipôles demi-onde dont la longueur est telle que $\Im(Z_L)=0$ (voir section \ref{subsec:demionde}). Pour avoir une direction maximale de rayonnement en $\theta=\frac{2\pi}{3}$, on peut évaluer le déphasage nécessaire entre chaque source par la relation \ref{eqn:dephasage}
+Nous étudions ici un réseau de 4 dipôles demi-onde dont la longueur est telle que $\Im(Z_L)=0$ (voir section \ref{subsec:demionde}), alignés verticalement. Pour avoir une directivité maximale de rayonnement en $\theta=\frac{2\pi}{3}$, on peut calculer le déphasage nécessaire entre chaque source par la relation \ref{eqn:dephasage}.
 \begin{equation}\label{eqn:dephasage}
 \delta = \beta d \cos(\theta)
 \end{equation}
-Où $\beta = \frac{2\pi f}{c} = $ est le nombre d'onde et $d$, la distance entre deux sources.
+Où $\beta = \frac{2\pi f}{c}$ est le nombre d'onde et $d$, la distance entre deux sources.
 
-Suite à cela, nous avons simulé le système : on peut constater sur la figure \ref{fig:rayonnement4} que le gain maximum est de $\num{4.24} = \SI{6.27}{\deci\bel}$.
-
+Le système est ensuite simulé : on peuét constater sur la figure \ref{fig:rayonnement4} que le gain maximum est de $\num{4.24} = \SI{6.27}{\deci\bel}$.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width = \textwidth]{rayonnement24.pdf}
   \caption{Diagramme de rayonnement du réseau de dipôles demi-onde dans le plan E\label{fig:rayonnement4}}
 \end{figure}
 
-Nous avons ensuite rajouté au système un plan conducteur parfait de dimension $3\lambda \times \lambda$ parallèle à l'axe des dipôles et à une distance $\frac{\lambda}{4}$ de ceux-ci. Après une seconde simulation, on peut constater un gain de $\num{14} = \SI{11.46}{\deci\bel}$ sur la figure \ref{fig:rayonnement4reflecteur}, ce qui est nettement mieux que sans le plan réflecteur. Ceci s'explique par le fait que le réseau ne rayonne plus en direction du plan et, par conséquent, rayonne plus fortement dans les autres directions.
-
+Nous avons ensuite rajouté au système un plan conducteur parfait de dimension $3\lambda \times \lambda$ parallèle à l'axe des dipôles et à une distance $\frac{\lambda}{4}$ de ceux-ci. Après une seconde simulation, on peut constater un gain de $\num{14} = \SI{11.46}{\deci\bel}$ sur la figure \ref{fig:rayonnement4reflecteur}, ce qui est nettement mieux que sans le plan réflecteur.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width = \textwidth]{rayonnement24b.pdf}
   \caption{Diagramme de rayonnement du réseau de dipôles demi-onde avec un plan réflecteur dans le plan E\label{fig:rayonnement4reflecteur}}
 \end{figure}
 
-Nous pouvons comparer les trois configurations étudiées du dipôle demi-onde : le dipôle seul,le réseau sans réflecteur et avec réflecteur :
+Ceci peut facilement s'expliquer par le fait que l'onde est réfléchie sur le plan conducteur et crée une interférence constructrice avec l'onde émise dans le sens opposé par le dipôle. On voit donc ici que le plan doit être écarté de $\frac{\lambda}{4}$ pour assurer que l'interférence soit bien constructive. En effet, l'onde réfléchie doit parcourir $\frac{\lambda}{2}$ en plus que l'onde originale, ce qui correspond à un déphasage de $\pi$. A ceci s'ajoute le déphasage induit par la réflexion d'une onde polarisée parallèlement qui est lui aussi de $\pi$. Le déphasage total est donc de $2\pi$, ce qui est souhaité. Tous les plans placés à $(2k+1)\frac{\lambda}{4} \; (k \in \mathbb{N})$ satisfont cette condition, mais on choisit le plus proche afin de réfléchir le plus plus d'énergie possible.
 
-\begin{tabular}{|l|c|r|}
+Finalement, les trois configurations: dipôle demi-onde, dipôle replié et réseau de dipôles sont comparés à la table \ref{tbl:comp}.
+\begin{table}[htbp]
+\begin{tabular}{ccc}
   \hline
-       dipôle demi-onde & Réseau sans réflecteur & réseau avec réflecteur \\
+       Dipôle demi-onde & Réseau sans réflecteur & Réseau avec réflecteur \\
   \hline
   $\SI{1.79}{\deci\bel}$ & $\SI{6.27}{\deci\bel}$ & $\SI{11.46}{\deci\bel}$ \\
   \hline
 \end{tabular}
+\caption{Comparaison des gains maximum des trois configurations d'antennes dipôles.\label{tbl:comp}}
+\end{table}
 
 %Coucou jason! Attention qu'une ligne vide = 1 nouveau paragraphe=> une idée séparée. Si tu veux absolument mettre des lignes vides autour de figures dans le code, mets les en commentaire.
+
+%Kikou nathou ! ok mais je vois pas trop quelles séparations clochent 
