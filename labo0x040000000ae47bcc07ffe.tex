@@ -5,7 +5,7 @@ Le gain de l'antenne dans le plan E est représenté dans la figure \ref{fig:gai
   \includegraphics[width=\textwidth]{gain21.pdf}
   \caption{Diagramme de rayonnement du dipôle court dans le plan E.\label{fig:gain21}}
 \end{figure}
-Le gain n'est pas représenté pour $\SI{180}{\degree}<\theta<\SI{360}{\degree}$, ce qui n'est pas important puisque l'on sait que le problème présente une symétrie cylindrique. Pour la même raison, les diagrammes dans le plan H ne sont pas donnés ici, mais se déduisent logiquement de la figure \ref{fig:gain21}: le gain est indépendant de $\phi$. Sa composante $\theta$ vaut la gain maximal du diagramme de rayonnement dans le plan E, et sa composante $\phi$ vaut $0$.
+Le gain n'est pas représenté pour $\SI{180}{\degree}<\theta<\SI{360}{\degree}$, ce qui n'est pas important puisque l'on sait que le problème présente une symétrie cylindrique. Pour la même raison, les diagrammes dans le plan H ne sont pas donnés ici, mais se déduisent logiquement de la figure \ref{fig:gain21}: le gain est indépendant de $\phi$. Sa composante $\theta$ vaut le gain maximal du diagramme de rayonnement dans le plan E, et sa composante $\phi$ vaut $0$.
 
 Sur la figure \ref{fig:gain21}, on lit un gain maximal de $\num{1.51} = \SI{1.79}{\deci\bel}$, ce qui est légèrement supérieur à la valeur $\frac{3}{2} = \SI{1.76}{\deci\bel}$ prédite par l'approximation du dipôle de Hertz. Ceci est logique puisque la directivité maximale augmente lorsqu'on augmente la longueur du dipôle.
 
@@ -32,7 +32,8 @@ Le gain dans le plan E est représenté dans un diagramme polaire à la figure \
   \includegraphics[width = \textwidth]{Rar22.pdf}
   \caption{Diagramme de rayonnement du dipôle demi-onde dans le plan E.\label{fig:gain22}}
 \end{figure}
-Les propriétés de symétrie de la figure \ref{fig:gain21} s'appliquent toujours. On lit sur le diagramme de rayonnement un gain maximal de \num{1.65}, ce qui est légèrement inférieur à la valeur de \num{1.7} prédite avec l'approximation $\left ( \frac{\cos(\frac{\pi}{2}\cos\theta)}{\sin\theta} \right ) ^2 \simeq \sin^3 \theta$.
+Les propriétés de symétrie de la figure \ref{fig:gain21} s'appliquent toujours. On lit sur le diagramme de rayonnement un gain maximal de \num{1.65}, ce qui est légèrement inférieur à la valeur de \num{1.7} prédite avec l'approximation
+\[\left ( \frac{\cos(\frac{\pi}{2}\cos\theta)}{\sin\theta} \right ) ^2 \simeq \sin^3 \theta\]
 
 Sur la figure \ref{fig:Z22},
 \begin{figure}[htbp]
@@ -48,7 +49,7 @@ Ceci est fait à la figure \ref{fig:Z022}.
   \includegraphics[width = \textwidth]{Z022.pdf}
   \caption{Parties réelle et imaginaire et module de l'impédance de l'antenne adaptée pour \SI{1.8}{\giga\hertz} en fonction de la fréquence.\label{fig:Z022}}
 \end{figure}
-La partie imaginaire de l'impédance s'annule bien en $f = \SI{1.8}{\giga\hertz}$ et le module de l'impédance de rayonnement est donc proche de son minimum.
+La partie imaginaire de l'impédance s'annule bien en $f = \SI{1.8}{\giga\hertz}$ et le module de l'impédance de rayonnement est donc proche de son minimum à cette fréquence.
 
 En utilisant la relation \ref{eqn:reflect}, on obtient $\Gamma_L = 0.027 = \SI{-31.2}{\deci\bel}$ pour $Z_c = \SI{75}{\ohm}$. Ceci est confirmé par la simulation, comme le montre la figure \ref{fig:gamma22}.
 \begin{figure}[htbp]
@@ -61,7 +62,7 @@ De ce coefficient de réflexion on tire la fraction de puissance consommée à l
   \frac{P_L}{P_{in}} = \SI{99.9}{\percent}
 \]
 
-Jusqu'à présent, nous avons travaillé avec un diamètre de fil = $0.00001 \lambda$. Lorsqu'on multiplie ce diamètre par 50, on constate que la fréquence de résonance est légèrement diminuée, mais surtout que la bande passante est plus que doublée, comme le montre la figure \ref{fig:gamma5022}.
+Jusqu'à présent, nous avons travaillé avec un diamètre de fil de $0.00001 \lambda$. Lorsqu'on multiplie ce diamètre par 50, on constate que la fréquence de résonance est légèrement diminuée, mais surtout que la bande passante est plus que doublée, comme le montre la figure \ref{fig:gamma5022}.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width = \textwidth]{gamma5022.pdf}
@@ -102,13 +103,12 @@ Le gain est représenté dans un diagramme polaire à la figure \ref{fig:gain234
 Le gain maximal est toujours bien évidemment dans le plan $\theta = 0$ et vaut \num{1.56}, ce qui est légèrement inférieur au gain maximal du dipôle demi-onde.
 
 \subsection{Réseau de dipôles}
-Nous étudions ici un réseau de 4 dipôles demi-onde dont la longueur est telle que $\Im(Z_L)=0$ (voir section \ref{subsec:demionde}), alignés verticalement. Pour avoir une directivité maximale de rayonnement en $\theta=\frac{2\pi}{3}$, on peut calculer le déphasage nécessaire entre chaque source par la relation \ref{eqn:dephasage}.
+Nous étudions ici un réseau de 4 dipôles demi-onde dont la longueur est telle que $\Im(Z_L)=0$ (voir section \ref{subsec:demionde}), et alignés verticalement. Pour avoir une directivité maximale de rayonnement en $\theta=\frac{2\pi}{3}$, on peut calculer le déphasage nécessaire entre chaque source par la relation \ref{eqn:dephasage}.
 \begin{equation}\label{eqn:dephasage}
 \delta = \beta d \cos(\theta)
 \end{equation}
 Où $\beta = \frac{2\pi f}{c}$ est le nombre d'onde et $d$, la distance entre deux sources.
-
-Le système est ensuite simulé : on peuét constater sur la figure \ref{fig:rayonnement4} que le gain maximum est de $\num{4.24} = \SI{6.27}{\deci\bel}$.
+Le système est ensuite simulé : on peut constater sur la figure \ref{fig:rayonnement4} que le gain maximum est de $\num{4.24} = \SI{6.27}{\deci\bel}$.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width = \textwidth]{rayonnement24.pdf}
@@ -122,7 +122,7 @@ Nous avons ensuite rajouté au système un plan conducteur parfait de dimension 
   \caption{Diagramme de rayonnement du réseau de dipôles demi-onde avec un plan réflecteur dans le plan E\label{fig:rayonnement4reflecteur}}
 \end{figure}
 
-Ceci peut facilement s'expliquer par le fait que l'onde est réfléchie sur le plan conducteur et crée une interférence constructrice avec l'onde émise dans le sens opposé par le dipôle. On voit donc ici que le plan doit être écarté de $\frac{\lambda}{4}$ pour assurer que l'interférence soit bien constructive. En effet, l'onde réfléchie doit parcourir $\frac{\lambda}{2}$ en plus que l'onde originale, ce qui correspond à un déphasage de $\pi$. A ceci s'ajoute le déphasage induit par la réflexion d'une onde polarisée parallèlement qui est lui aussi de $\pi$. Le déphasage total est donc de $2\pi$, ce qui est souhaité. Tous les plans placés à $(2k+1)\frac{\lambda}{4} \; (k \in \mathbb{N})$ satisfont cette condition, mais on choisit le plus proche afin de réfléchir le plus plus d'énergie possible.
+Ceci peut facilement s'expliquer par le fait que l'onde est réfléchie sur le plan conducteur et crée une interférence constructrice avec l'onde émise dans le sens opposé par le dipôle. On voit donc ici que le plan doit être écarté de $\frac{\lambda}{4}$ pour assurer que l'interférence soit bien constructive. En effet, l'onde réfléchie doit parcourir $\frac{\lambda}{2}$ en plus que l'onde originale, ce qui correspond à un déphasage de $\pi$. A ceci s'ajoute le déphasage induit par la réflexion d'une onde polarisée parallèlement qui est lui aussi de $\pi$. Le déphasage total est donc de $2\pi$, ce qui est souhaité. Tous les plans placés à $(2k+1)\frac{\lambda}{4} \; (k \in \mathbb{N})$ satisfont cette condition, mais on choisit le plus proche afin de réfléchir le plus d'énergie possible.
 
 Finalement, les trois configurations: dipôle demi-onde, dipôle replié et réseau de dipôles sont comparés à la table \ref{tbl:comp}.
 \begin{table}[htbp]
@@ -138,4 +138,4 @@ Finalement, les trois configurations: dipôle demi-onde, dipôle replié et rés
 
 %Coucou jason! Attention qu'une ligne vide = 1 nouveau paragraphe=> une idée séparée. Si tu veux absolument mettre des lignes vides autour de figures dans le code, mets les en commentaire.
 
-%Kikou nathou ! ok mais je vois pas trop quelles séparations clochent 
+%Kikou nathou ! ok mais je vois pas trop quelles séparations clochent

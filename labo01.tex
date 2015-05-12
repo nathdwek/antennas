@@ -1,19 +1,19 @@
 Durant notre première séance de laboratoire pour le cours de physique des télécommunications, nous avons dimensionné une antenne patch alimentée par une ligne microstrip à l'aide du logiciel FEKO. Pour cela nous avons procédé par étapes, partant d'un design simple et parfaitement symétrique auquel nous avons petit à petit ajouté ou modifié des éléments pour arriver à la version finale remplissant toutes les spécifications.
 
-A la fin de la séance, nous avons obtenu une antenne dont les caractéristiques simulées étaient un coefficient de réflexion minimal de \SI{-27.43}{\deci\bel} à la fréquence de \SI{2.398}{\giga\hertz}\footnote{le cahier des charges nous imposait un coefficient de réflexion de \SI{-6}{\deci\bel} à la fréquence d'utilisation de l'antenne, c'est-à-dire \SI{2.4}{\giga\hertz}}, et un gain maximal de \num{2.54}.
+A la fin de la séance, nous avons obtenu une antenne dont les caractéristiques simulées étaient un coefficient de réflexion minimal de \SI{-27.43}{\deci\bel} à la fréquence de \SI{2.398}{\giga\hertz}\footnote{Le cahier des charges nous imposait un coefficient de réflexion de \SI{-6}{\deci\bel} à la fréquence d'utilisation de l'antenne, c'est-à-dire \SI{2.4}{\giga\hertz}}, et un gain maximal de \num{2.54}.
 
 Cette antenne sera ensuite testée expérimentalement lors de la troisième séance. Dans ce chapitre, nous allons détailler les différentes étapes qui nous ont amenés au dimensionnement final de notre antenne.
 
 \subsection{Antenne sur un diélectrique infini}
-Pour commencer, nous avons simplement simulé un patch rectangulaire en matériau conducteur parfait posé sur un matériau diélectrique de même permittivité électrique que le PCB utilisé en pratique pour fabriquer notre antenne, mais considéré dans un premier temps sans perte. Pour ce qui est des dimensions du patch, nous avons utilisé les formules qui nous étaient fournies en annexe de l'énoncé. La figure \ref{fig:rayonnement_11} nous donne la directivité ainsi que le gain de l'antenne pour des valeurs de $\phi$ de \SI{0}{\degree} et \SI{90}{\degree}.
+Pour commencer, nous avons simplement simulé un patch rectangulaire en matériau conducteur parfait posé sur une plaque infinie en matériau diélectrique de même permittivité électrique que le PCB utilisé en pratique pour fabriquer notre antenne, mais considéré dans un premier temps sans perte. Les dimensions du patch ont été calculées à partir de la fréquence d'utilisation souhaitée ainsi que de l'épaisseur et de la permittivité du diélectrique utilisé, en utilisant les relations fournies dans l'énoncé. La figure \ref{fig:rayonnement_11} nous donne la directivité ainsi que le gain de l'antenne pour des valeurs de $\phi$ de \SI{0}{\degree} et \SI{90}{\degree}.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{rayonnement11_annotation.pdf}
   \caption{Diagramme de rayonnement du gain \label{fig:rayonnement_11}}
 \end{figure}
-Pour les deux valeurs de $\phi$, la directivité maximale et le gain maximal ont des valeurs égales car, pour l'instant, nous avons fait nos simulations sans pertes. 
+La directivité et le gain ont des valeurs égales car, pour l'instant, nous avons fait nos simulations sans pertes: $\eta = 1$
 
-Nous nous sommes aussi intéressés au coefficient de réflexion de l'antenne ainsi qu'à sa fréquence de résonance.
+Nous nous sommes aussi intéressés au coefficient de réflexion de l'antenne, qui dépend fortement de la fréquence d'excitation.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{reflection11_annotation.pdf}
@@ -44,14 +44,14 @@ Premièrement, comme nous pouvons le voir sur la figure \ref{fig:reflection12_an
 \end{figure}
 la fréquence de résonance s'est déplacée à \SI{2.27}{\giga\hertz} mais le coefficient de réflexion à surtout fortement augmenté pour prendre la valeur de \SI{-8.47}{\deci\bel}. La bande passante s'est elle aussi dégradée et ne vaut plus que \SI{0.033}{\giga\hertz}.
 
-A nouveau, il est intéressant d'étudier le diagramme de rayonnement du gain de l'antenne, donné à la figure \ref{fig:rayonnement12_annotation}, où l'on remarque que la directivité maximale et le gain maximal valent \SI{3.64} que ce soit pour $\phi = \SI{0}{\degree}$ ou $\SI{90}{\degree}$.
+A nouveau, il est intéressant d'étudier le diagramme de rayonnement du gain de l'antenne, donné à la figure \ref{fig:rayonnement12_annotation}, où l'on remarque que la directivité maximale et le gain maximal valent \SI{3.64}{},	 que ce soit pour $\phi = \SI{0}{\degree}$ ou $\SI{90}{\degree}$.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{rayonnement12_annotation}
 \caption{Diagramme de rayonnement de l'antenne sur diélectrique fini}
 \label{fig:rayonnement12_annotation}
 \end{figure}
-Pour terminer, nous avons pris en compte les pertes dans le diélectrique en posant $\tan{\delta} = 0.01$. Le gain diminue alors à \SI{2.64}, la directivité maximale vaut \SI{4.04} et le coefficient de réflexion vaut \SI{-6}{\deci\bel} à la fréquence de résonance, qui reste inchangée (figure \ref{fig:reflection122_annotation}).
+Pour terminer, nous avons pris en compte les pertes dans le diélectrique en posant $\tan{\delta} = 0.01$. Le gain diminue alors à \num{2.64}, la directivité maximale vaut \SI{4.04}{} et le coefficient de réflexion vaut \SI{-6}{\deci\bel} à la fréquence de résonance, qui reste inchangée (figure \ref{fig:reflection122_annotation}).
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{reflection122_annotation.pdf}
@@ -61,7 +61,7 @@ Pour terminer, nous avons pris en compte les pertes dans le diélectrique en pos
 
 
 \subsection{Antenne avec fente}
-Comme l'indique le titre, l'étape suivante a été de "creuser" une fente dans le carré de notre antenne patch. La seule consigne à suivre était que le coefficient de réflexion à la résonance devait être inférieur à \SI{-10}{\deci\bel}. Comme le montre la figure \ref{fig:reflection13_annotation}, notre choix de \SI{8}{\milli\meter} pour $y_0$ respecte cette consigne.
+Comme l'indique le titre, l'étape suivante a été de ménager une fente dans le patch. La longueur de la fente est dimensionnée afin d'obtenir l'adaptation d'impédance à \SI{50}{\ohm} en utilisant les relations de l'énoncé qui relient $R_{in}(y=y_0)$ a $R_{in} (y= 0)$. La largeur est choisie assez grande pour éviter les que le champ émis par l'antenne ne se replie pas par la ligne microstrip. La spécification imposée était le coefficient de réflexion à la résonance qui devait être inférieur à \SI{-10}{\deci\bel}. Comme le montre la figure \ref{fig:reflection13_annotation}, notre choix de \SI{8}{\milli\meter} pour $y_0$ respecte cette consigne.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{reflection13_annotation.pdf}
@@ -69,15 +69,15 @@ Comme l'indique le titre, l'étape suivante a été de "creuser" une fente dans 
 \label{fig:reflection13_annotation}
 \end{figure}
 
-\subsection{Notre antenne}
-Pour terminer, nous avons ajouté le microstrip dans la fente de notre patch. Mais ni le coefficient de réflexion, ni la fréquence de résonance ne répondaient au cahier des charges, nous avons donc dû modifier les paramètres de notre antenne de manière à s'approcher le plus possible du résultat demandé.
+\subsection{Dimensionnement final de l'antenne commandée}
+Pour terminer, nous avons alimenté l'antenne par un microstrip inséré dans la fente de l'antenne de la section précédente. A la première itération, ni le coefficient de réflexion, ni la fréquence de résonance ne répondaient au cahier des charges, nous avons donc dû modifier les paramètres de notre antenne de manière à s'approcher le plus possible du résultat demandé.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{rayonnement_annotationFinal.pdf}
 \caption{Diagramme de rayonnement de notre antenne}
 \label{fig:rayonnement_annotationFinal}
 \end{figure}
-Comme on peut le voir sur la figure \ref{fig:rayonnement_annotationFinal}, notre gain maximum vaut \SI{2.25}. La directivité quant à elle vaut \SI{4.02}. Le rendement de l'antenne est défini comme le rapport des deux et vaut \SI{0.56}. Le coefficient de réflexion est quand à lui donné à la figure \ref{fig:reflection_annotationFinal}.
+Comme on peut le voir sur la figure \ref{fig:rayonnement_annotationFinal}, le gain maximum de notre meilleure itération vaut \SI{2.25}. La directivité quant à elle vaut \SI{4.02}. Le rendement de l'antenne est défini comme le rapport des deux et vaut \SI{0.56} (le rendement est indépendant de $\theta$ et $\phi$). Le coefficient de réflexion est quand à lui donné à la figure \ref{fig:reflection_annotationFinal}.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{reflection_annotationFinal.pdf}
@@ -85,7 +85,7 @@ Comme on peut le voir sur la figure \ref{fig:rayonnement_annotationFinal}, notre
 \label{fig:reflection_annotationFinal}
 \end{figure}
 
-Pour conclure ce premier laboratoire, nous avons calculé la puissance reçue par notre antenne si une antenne identique émet \SI{1}{\milli\watt} à un mètre de distance. Pour cela, nous avons utilisé la formule de Friis (\ref{eqn:Friis}). Le résultat est de \SI{0.5}{\micro\watt}.
+Pour conclure ce premier laboratoire, nous avons calculé la puissance reçue par notre antenne si une antenne identique émet \SI{1}{\milli\watt} à un mètre de distance. Pour cela, nous avons utilisé la formule de Friis (\ref{eqn:Friis}). Le bilan de liaison donne une puissance à la réception de \SI{0.5}{\micro\watt}.
 
 \begin{equation}
 P_{RX}(d) = P_{TX}G_{TX}(\theta_{TX},\phi_{TX})G_{RX}(\theta_{RX},\phi_{RX})\left(\frac{\lambda}{4\pi d}\right)^2
